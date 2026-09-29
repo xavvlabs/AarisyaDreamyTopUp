@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>𐙚 Karisya Dreamy — Cute Robux Shop</title>
+    <title>𐙚 Karisya Dreamy — Top Up Robux</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -985,10 +985,39 @@
                         <input type="text" id="username" placeholder="Contoh: KarisyaDreamy" autocomplete="off"
                             required>
 
+                        <button type="button" id="verifyRobloxButton" class="verify-roblox-button">
+                            Cek Akun Roblox
+                            <span>✦</span>
+                        </button>
 
                         <small class="input-note">
-                            ♡ Cukup username Roblox ya, jangan pernah kasih password.
+                            ♡ Username akan dicek langsung ke data Roblox. Jangan pernah kasih password.
                         </small>
+
+                        <div id="robloxStatus" class="roblox-status" aria-live="polite"></div>
+
+                        <div id="robloxProfile" class="roblox-profile" hidden>
+                            <div class="roblox-profile-avatar">
+                                <img id="robloxAvatar" src="" alt="Avatar Roblox">
+                            </div>
+
+                            <div class="roblox-profile-info">
+                                <div class="roblox-profile-badge">
+                                    <span>✓</span> AKUN DITEMUKAN
+                                </div>
+
+                                <h4 id="robloxDisplayName">Display Name</h4>
+                                <p id="robloxUsername">@username</p>
+                                <small id="robloxUserId">User ID: -</small>
+                            </div>
+
+                            <div class="roblox-profile-check">
+                                ✓
+                            </div>
+                        </div>
+
+                        <input type="hidden" id="robloxUserIdValue" value="">
+                        <input type="hidden" id="robloxDisplayNameValue" value="">
 
                     </div>
 
