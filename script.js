@@ -168,7 +168,6 @@ verifyButton.addEventListener(
   async function () {
     const username = usernameInput.value.trim();
 
-    // USERNAME KOSONG
     if (!username) {
       robloxStatus.textContent =
         "Masukkan username Roblox dulu ya ♡";
@@ -181,12 +180,10 @@ verifyButton.addEventListener(
       return;
     }
 
-    // RESET STATUS
     akunRobloxTerverifikasi = false;
     orderButton.disabled = true;
     robloxProfile.hidden = true;
 
-    // LOADING
     verifyButton.disabled = true;
 
     verifyButton.innerHTML =
@@ -199,11 +196,9 @@ verifyButton.addEventListener(
       "roblox-status loading";
 
     try {
-      // AMBIL DATA DARI WORKER
       const user =
         await cariAkunRoblox(username);
 
-      // USER TIDAK DITEMUKAN
       if (!user) {
         robloxStatus.textContent =
           "Username Roblox tidak ditemukan. Coba cek lagi penulisannya.";
@@ -214,7 +209,6 @@ verifyButton.addEventListener(
         return;
       }
 
-      // DATA USER
       const namaUsername =
         user.username || username;
 
@@ -224,7 +218,6 @@ verifyButton.addEventListener(
       const userId =
         user.userId;
 
-      // TAMPILKAN DATA
       robloxDisplayName.textContent =
         namaDisplay;
 
@@ -233,10 +226,6 @@ verifyButton.addEventListener(
 
       robloxUserId.textContent =
         `User ID: ${userId}`;
-
-      // ======================================
-      // AVATAR
-      // ======================================
 
       const avatarUrl =
         user.avatar ||
@@ -260,17 +249,14 @@ verifyButton.addEventListener(
           "Character Roblox tidak tersedia";
       }
 
-      // SIMPAN DATA
       robloxUserIdValue.value =
         userId;
 
       robloxDisplayNameValue.value =
         namaDisplay;
 
-      // TAMPILKAN PROFILE
       robloxProfile.hidden = false;
 
-      // BERHASIL
       robloxStatus.textContent =
         "Akun Roblox ditemukan. Pastikan username dan character di atas sudah benar.";
 
@@ -320,7 +306,6 @@ document
       const username =
         usernameInput.value.trim();
 
-      // CEK PAKET
       if (!paketSelect.value) {
         alert(
           "Yuk pilih paket Robux dulu ✨"
@@ -329,7 +314,6 @@ document
         return;
       }
 
-      // CEK USERNAME
       if (!username) {
         alert(
           "Masukkan username Roblox kamu dulu ya ♡"
@@ -338,7 +322,6 @@ document
         return;
       }
 
-      // CEK VERIFIKASI
       if (!akunRobloxTerverifikasi) {
         alert(
           "Cek dan pastikan username Roblox kamu sudah terverifikasi dulu ya ♡"
@@ -349,7 +332,6 @@ document
         return;
       }
 
-      // DATA PAKET
       const selectedOption =
         paketSelect.options[
           paketSelect.selectedIndex
