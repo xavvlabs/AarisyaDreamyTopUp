@@ -11,7 +11,6 @@ const nomorWhatsApp = "6289625037020";
 
 const ROBLOX_PROXY_URL =
   "https://roblox-api.xavvlabs.workers.dev";
-
 // ==========================================
 // FORMAT RUPIAH
 // ==========================================
