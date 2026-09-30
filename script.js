@@ -1,135 +1,446 @@
-const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Methods": "GET, OPTIONS",
-  "Access-Control-Allow-Headers": "Content-Type"
-};
+// ==========================================
+// KARISYA DREAMY — ROBLOX VERIFICATION
+// ==========================================
 
-export default {
-  async fetch(request) {
-    const url = new URL(request.url);
+// NOMOR WHATSAPP ADMIN
+const nomorWhatsApp = "6289625037020";
 
-    // CORS preflight
-    if (request.method === "OPTIONS") {
-      return new Response(null, {
-        status: 204,
-        headers: corsHeaders
-      });
+// ==========================================
+// CLOUDFLARE WORKER
+// ==========================================
+
+const ROBLOX_PROXY_URL =
+  "https://aarisyadreamytopup.xavvlabs.workers.dev";
+
+// ==========================================
+// FORMAT RUPIAH
+// ==========================================
+
+function formatRupiah(angka) {
+  return new Intl.NumberFormat("id-ID", {
+    style: "currency",
+    currency: "IDR",
+    minimumFractionDigits: 0,
+  }).format(angka);
+}
+
+// ==========================================
+// PILIH PAKET
+// ==========================================
+
+function pilihPaket(namaPaket, harga, tipe) {
+  const paketSelect = document.getElementById("paket");
+  const total = document.getElementById("total");
+  const options = paketSelect.options;
+
+  for (let i = 0; i < options.length; i++) {
+    const option = options[i];
+
+    const optionNama = option.value;
+    const optionHarga = option.getAttribute("data-price");
+    const optionTipe = option.getAttribute("data-type");
+
+    if (
+      optionNama === namaPaket &&
+      Number(optionHarga) === harga &&
+      optionTipe === tipe
+    ) {
+      paketSelect.selectedIndex = i;
+      break;
+    }
+  }
+
+  total.textContent = formatRupiah(harga);
+
+  document.getElementById("order").scrollIntoView({
+    behavior: "smooth",
+  });
+}
+
+// ==========================================
+// UPDATE TOTAL
+// ==========================================
+
+document.getElementById("paket").addEventListener("change", function () {
+  const selectedOption = this.options[this.selectedIndex];
+  const harga = selectedOption.getAttribute("data-price");
+  const total = document.getElementById("total");
+
+  if (harga) {
+    total.textContent = formatRupiah(Number(harga));
+  } else {
+    total.textContent = "Rp0";
+  }
+});
+
+// ==========================================
+// ELEMENT ROBLOX
+// ==========================================
+
+const usernameInput = document.getElementById("username");
+const verifyButton = document.getElementById("verifyRobloxButton");
+const robloxStatus = document.getElementById("robloxStatus");
+const robloxProfile = document.getElementById("robloxProfile");
+const robloxAvatar = document.getElementById("robloxAvatar");
+const robloxDisplayName = document.getElementById("robloxDisplayName");
+const robloxUsername = document.getElementById("robloxUsername");
+const robloxUserId = document.getElementById("robloxUserId");
+
+const robloxUserIdValue = document.getElementById(
+  "robloxUserIdValue"
+);
+
+const robloxDisplayNameValue = document.getElementById(
+  "robloxDisplayNameValue"
+);
+
+const orderButton = document.querySelector(".order-button");
+
+let akunRobloxTerverifikasi = false;
+
+// ==========================================
+// RESET VERIFIKASI
+// ==========================================
+
+function resetVerifikasiRoblox() {
+  akunRobloxTerverifikasi = false;
+
+  robloxStatus.textContent = "";
+  robloxStatus.className = "roblox-status";
+
+  robloxProfile.hidden = true;
+
+  robloxAvatar.removeAttribute("src");
+
+  robloxUserIdValue.value = "";
+  robloxDisplayNameValue.value = "";
+
+  orderButton.disabled = true;
+}
+
+// ==========================================
+// JIKA USERNAME BERUBAH
+// ==========================================
+
+usernameInput.addEventListener(
+  "input",
+  resetVerifikasiRoblox
+);
+
+// ==========================================
+// CARI AKUN ROBLOX
+// ==========================================
+
+async function cariAkunRoblox(username) {
+  const url =
+    `${ROBLOX_PROXY_URL}/api/roblox/${encodeURIComponent(username)}`;
+
+  const response = await fetch(url, {
+    method: "GET",
+    headers: {
+      Accept: "application/json",
+    },
+  });
+
+  if (!response.ok) {
+    if (response.status === 404) {
+      return null;
     }
 
-    // Halaman utama
-    if (url.pathname === "/") {
-      return Response.json(
-        {
-          success: true,
-          message: "Roblox API aktif"
-        },
-        {
-          headers: corsHeaders
-        }
+    throw new Error(`Worker error: ${response.status}`);
+  }
+
+  const data = await response.json();
+
+  if (!data.success) {
+    return null;
+  }
+
+  return data;
+}
+
+// ==========================================
+// TOMBOL CEK AKUN ROBLOX
+// ==========================================
+
+verifyButton.addEventListener(
+  "click",
+  async function () {
+    const username = usernameInput.value.trim();
+
+    if (!username) {
+      robloxStatus.textContent =
+        "Masukkan username Roblox dulu ya ♡";
+
+      robloxStatus.className =
+        "roblox-status error";
+
+      usernameInput.focus();
+
+      return;
+    }
+
+    akunRobloxTerverifikasi = false;
+    orderButton.disabled = true;
+    robloxProfile.hidden = true;
+
+    verifyButton.disabled = true;
+
+    verifyButton.innerHTML =
+      "Sedang mengecek... <span>⏳</span>";
+
+    robloxStatus.textContent =
+      "Menghubungkan ke data Roblox...";
+
+    robloxStatus.className =
+      "roblox-status loading";
+
+    try {
+      const user =
+        await cariAkunRoblox(username);
+
+      if (!user) {
+        robloxStatus.textContent =
+          "Username Roblox tidak ditemukan. Coba cek lagi penulisannya.";
+
+        robloxStatus.className =
+          "roblox-status error";
+
+        return;
+      }
+
+      const namaUsername =
+        user.username || username;
+
+      const namaDisplay =
+        user.displayName || namaUsername;
+
+      const userId =
+        user.userId;
+
+      robloxDisplayName.textContent =
+        namaDisplay;
+
+      robloxUsername.textContent =
+        `@${namaUsername}`;
+
+      robloxUserId.textContent =
+        `User ID: ${userId}`;
+
+      const avatarUrl =
+        user.avatar ||
+        user.image ||
+        user.headshot ||
+        "";
+
+      if (avatarUrl) {
+        robloxAvatar.src =
+          avatarUrl;
+
+        robloxAvatar.alt =
+          `Character Roblox ${namaUsername}`;
+
+        robloxAvatar.style.display =
+          "block";
+      } else {
+        robloxAvatar.removeAttribute("src");
+
+        robloxAvatar.alt =
+          "Character Roblox tidak tersedia";
+      }
+
+      robloxUserIdValue.value =
+        userId;
+
+      robloxDisplayNameValue.value =
+        namaDisplay;
+
+      robloxProfile.hidden = false;
+
+      robloxStatus.textContent =
+        "Akun Roblox ditemukan. Pastikan username dan character di atas sudah benar.";
+
+      robloxStatus.className =
+        "roblox-status success";
+
+      akunRobloxTerverifikasi = true;
+
+      orderButton.disabled = false;
+
+    } catch (error) {
+      console.error(
+        "Roblox verification error:",
+        error
       );
-    }
 
-    // API Roblox
-    if (url.pathname.startsWith("/api/roblox/")) {
-      const username = decodeURIComponent(
-        url.pathname.replace("/api/roblox/", "")
-      ).trim();
+      robloxStatus.textContent =
+        "Gagal menghubungkan ke Roblox. Coba lagi beberapa saat.";
+
+      robloxStatus.className =
+        "roblox-status error";
+
+    } finally {
+      verifyButton.disabled = false;
+
+      verifyButton.innerHTML =
+        "Cek Akun Roblox <span>✦</span>";
+    }
+  }
+);
+
+// ==========================================
+// SUBMIT ORDER
+// ==========================================
+
+document
+  .getElementById("orderForm")
+  .addEventListener(
+    "submit",
+    function (event) {
+
+      event.preventDefault();
+
+      const paketSelect =
+        document.getElementById("paket");
+
+      const username =
+        usernameInput.value.trim();
+
+      if (!paketSelect.value) {
+        alert(
+          "Yuk pilih paket Robux dulu ✨"
+        );
+
+        return;
+      }
 
       if (!username) {
-        return Response.json(
-          {
-            success: false,
-            message: "Username Roblox kosong"
-          },
-          {
-            status: 400,
-            headers: corsHeaders
-          }
+        alert(
+          "Masukkan username Roblox kamu dulu ya ♡"
         );
+
+        return;
       }
 
-      try {
-        // Cari username Roblox
-        const userResponse = await fetch(
-          "https://users.roblox.com/v1/usernames/users",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-              usernames: [username],
-              excludeBannedUsers: false
-            })
-          }
+      if (!akunRobloxTerverifikasi) {
+        alert(
+          "Cek dan pastikan username Roblox kamu sudah terverifikasi dulu ya ♡"
         );
 
-        const userData = await userResponse.json();
+        usernameInput.focus();
 
-        if (
-          !userData.data ||
-          userData.data.length === 0
-        ) {
-          return Response.json(
-            {
-              success: false,
-              message: "Username Roblox tidak ditemukan"
-            },
-            {
-              status: 404,
-              headers: corsHeaders
-            }
-          );
-        }
-
-        const user = userData.data[0];
-
-        // Ambil avatar Roblox
-        const avatarResponse = await fetch(
-          `https://thumbnails.roblox.com/v1/users/avatar?userIds=${user.id}&size=720x720&format=Png&isCircular=false`
-        );
-
-        const avatarData = await avatarResponse.json();
-
-        const avatar =
-          avatarData.data?.[0]?.imageUrl || null;
-
-        return Response.json(
-          {
-            success: true,
-            userId: user.id,
-            username: user.name,
-            displayName: user.displayName,
-            avatar: avatar
-          },
-          {
-            headers: corsHeaders
-          }
-        );
-
-      } catch (error) {
-        return Response.json(
-          {
-            success: false,
-            message: "Gagal menghubungkan ke Roblox"
-          },
-          {
-            status: 500,
-            headers: corsHeaders
-          }
-        );
+        return;
       }
+
+      const selectedOption =
+        paketSelect.options[
+          paketSelect.selectedIndex
+        ];
+
+      const paket =
+        selectedOption.value;
+
+      const harga =
+        Number(
+          selectedOption.getAttribute(
+            "data-price"
+          )
+        );
+
+      const tipe =
+        selectedOption.getAttribute(
+          "data-type"
+        );
+
+      const userId =
+        robloxUserIdValue.value;
+
+      const displayName =
+        robloxDisplayNameValue.value;
+
+      // ======================================
+      // ORDER ID
+      // ======================================
+
+      const sekarang =
+        new Date();
+
+      const tahun =
+        String(
+          sekarang.getFullYear()
+        ).slice(-2);
+
+      const bulan =
+        String(
+          sekarang.getMonth() + 1
+        ).padStart(2, "0");
+
+      const tanggal =
+        String(
+          sekarang.getDate()
+        ).padStart(2, "0");
+
+      const jam =
+        String(
+          sekarang.getHours()
+        ).padStart(2, "0");
+
+      const menit =
+        String(
+          sekarang.getMinutes()
+        ).padStart(2, "0");
+
+      const detik =
+        String(
+          sekarang.getSeconds()
+        ).padStart(2, "0");
+
+      const orderID =
+        `KD-${tanggal}${bulan}${tahun}-${jam}${menit}${detik}`;
+
+      // ======================================
+      // PESAN WHATSAPP
+      // ======================================
+
+      const pesan =
+`*PESANAN ✨*
+
+Order ID: ${orderID}
+
+*DETAIL PESANAN*
+━━━━━━━━━━━━━━━━
+Jenis: ${tipe}
+Paket: ${paket}
+Username Roblox: ${username}
+Display Name: ${displayName}
+User ID: ${userId}
+Total: ${formatRupiah(harga)}
+Status: Username terverifikasi dari data Roblox
+━━━━━━━━━━━━━━━━
+
+Halo Admin Karisya Dreamy 💗
+Saya mau order Robux dengan detail di atas.
+
+Mohon info pembayaran selanjutnya ya ✨
+
+Thank you ♡
+`;
+
+      const pesanEncoded =
+        encodeURIComponent(pesan);
+
+      const linkWhatsApp =
+        `https://wa.me/${nomorWhatsApp}?text=${pesanEncoded}`;
+
+      window.open(
+        linkWhatsApp,
+        "_blank"
+      );
     }
+  );
 
-    return Response.json(
-      {
-        success: false,
-        message: "Endpoint tidak ditemukan"
-      },
-      {
-        status: 404,
-        headers: corsHeaders
-      }
-    );
-  }
-};
+// ==========================================
+// DEFAULT
+// ==========================================
+
+orderButton.disabled = true;
