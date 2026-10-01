@@ -4,1183 +4,392 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Karisya Dreamy — Top Up Robux</title>
-
+    <title>Karisya Dreamy — Top Up Robux Gemas</title>
+    <meta name="description"
+        content="Top up Robux di Karisya Dreamy: pilih paket, cek username Roblox, lalu lanjut pesan lewat WhatsApp. Tanpa password.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
     <link
         href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fredoka:wght@400;500;600;700&display=swap"
         rel="stylesheet">
-
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-
-    <!-- DECORATION -->
-
     <div class="cloud cloud-1">☁</div>
     <div class="cloud cloud-2">☁</div>
-
     <div class="sparkle sparkle-1">✦</div>
     <div class="sparkle sparkle-2">✧</div>
-
     <div class="cute-float heart-1">♡</div>
     <div class="cute-float flower-3">✿</div>
 
-
-    <!-- NAVBAR -->
-
     <header class="navbar">
-
         <div class="nav-container">
-
-            <a href="#home" class="logo">
-                Karisya Dreamy
-            </a>
-
-            <nav>
-
-                <a href="#home">
-                    Home
-                </a>
-
-                <a href="#price">
-                    Price List
-                </a>
-
-                <a href="#how">
-                    Cara Pesan
-                </a>
-
-                <a href="#order" class="nav-order">
-                    Order Sekarang
-                </a>
-
-            </nav>
-
+            <a href="#home" class="logo">Karisya Dreamy 🎀</a>
+            <nav><a href="#home">Home</a><a href="#price">Price List</a><a href="#how">Cara Pesan</a><a
+                    href="#faq">Tanya Jawab</a><a href="#order" class="nav-order">Order Sekarang</a></nav>
         </div>
-
     </header>
 
-
-    <!-- HERO -->
-
     <section class="hero" id="home">
-
-        <div class="hero-decoration moon">
-            ☾
-        </div>
-
-        <div class="hero-decoration star star-a">
-            ✦
-        </div>
-
-        <div class="hero-decoration star star-b">
-            ✧
-        </div>
-
-        <div class="hero-decoration heart star-d">
-            ♡
-        </div>
-
-
+        <div class="hero-decoration moon">☾</div>
+        <div class="hero-decoration star star-a">✦</div>
+        <div class="hero-decoration star star-b">✧</div>
+        <div class="hero-decoration heart star-d">♡</div>
         <div class="hero-container">
-
             <div class="hero-content">
-
-                <div class="mini-label">
-                    Welcome to Karisya Dreamy
-                </div>
-
-                <h1>
-                    Saatnya bikin
-                    <span>
-                        avatar kamu makin gemes.
-                    </span>
-                </h1>
-
-                <p>
-                    Pilih paket Robux favoritmu di
-                    <b>Karisya Dreamy</b>,
-                    masukkan nama pengguna Roblox,
-                    lalu lanjutkan pesanan melalui WhatsApp.
-                </p>
-
-
-                <div class="hero-buttons">
-
-                    <a href="#price" class="btn btn-primary">
-                        Lihat Paket Robux
-                    </a>
-
-                    <a href="#how" class="btn btn-secondary">
-                        Cara Pesan
-                    </a>
-
-                </div>
-
-
+                <div class="mini-label">✨ Toko Robux yang manis & ramah</div>
+                <h1>Wishlist Roblox kamu,<span>kami bantu wujudkan.</span></h1>
+                <p>Pilih paket Robux di <b>Karisya Dreamy</b>, cek username Roblox kamu, lalu kirim pesanan ke admin
+                    lewat WhatsApp. Cuma butuh username, <b>tanpa password</b>.</p>
+                <div class="hero-buttons"><a href="#price" class="btn btn-primary">Pilih Paket Robux</a><a href="#how"
+                        class="btn btn-secondary">Lihat Cara Pesan</a></div>
                 <div class="hero-features">
-
-                    <div>
-                        <span>01</span>
-                        <p>Mudah</p>
+                    <div><span>🌸</span>
+                        <p>Gampang</p>
                     </div>
-
-                    <div>
-                        <span>02</span>
+                    <div><span>⚡</span>
                         <p>Praktis</p>
                     </div>
-
-                    <div>
-                        <span>03</span>
+                    <div><span>🔒</span>
                         <p>Aman</p>
                     </div>
-
                 </div>
-
             </div>
-
-
             <div class="hero-visual">
-
-                <div class="floating-flower flower-1">
-                    ✿
-                </div>
-
-                <div class="floating-flower flower-2">
-                    ❀
-                </div>
-
-                <div class="ribbon">
-                    🎀
-                </div>
-
-                <div class="roblox-block block-1">
-                    ♡
-                </div>
-
-                <div class="roblox-block block-2">
-                    ✦
-                </div>
-
-
+                <div class="floating-flower flower-1">✿</div>
+                <div class="floating-flower flower-2">❀</div>
+                <div class="ribbon">🎀</div>
+                <div class="roblox-block block-1">♡</div>
+                <div class="roblox-block block-2">✦</div>
                 <div class="dream-card">
-
-                    <div class="card-stars">
-                        ✦　✧
+                    <div class="card-stars">✦　✧</div>
+                    <div class="robux-orb" id="avatarOrb"><span class="orb-fallback">R$</span>
+                        <div class="orb-badge">R$</div>
                     </div>
-
-                    <div class="robux-orb">
-                        <span>
-                            R$
-                        </span>
-                    </div>
-
-                    <p class="card-small">
-                        KARISYA DREAMY
-                    </p>
-
-                    <h2>
-                        Your avatar,
-                        <span>
-                            your little dream
-                        </span>
-                    </h2>
-
-                    <div class="card-bottom">
-
-                        <span>
-                            Robux
-                        </span>
-
-                        <span>
-                            Via Send
-                        </span>
-
-                    </div>
-
+                    <p class="card-small">KARISYA DREAMY</p>
+                    <h2>Avatar kamu,<span>mimpi kecilmu ✨</span></h2>
+                    <div class="card-bottom"><span>Robux</span><span>Via Send</span></div>
                 </div>
-
             </div>
-
         </div>
-
     </section>
-
-
-    <!-- INTRO -->
 
     <section class="cute-strip">
-
-        <div class="cute-strip-item">
-            <span>01</span>
-            <strong>Pilih Robux</strong>
-        </div>
-
-        <div class="cute-strip-divider">
-            /
-        </div>
-
-        <div class="cute-strip-item">
-            <span>02</span>
-            <strong>Isi Username</strong>
-        </div>
-
-        <div class="cute-strip-divider">
-            /
-        </div>
-
-        <div class="cute-strip-item">
-            <span>03</span>
-            <strong>Chat Admin</strong>
-        </div>
-
-        <div class="cute-strip-divider">
-            /
-        </div>
-
-        <div class="cute-strip-item">
-            <span>04</span>
-            <strong>Siap Main</strong>
-        </div>
-
+        <div class="cute-strip-item"><span>1</span><strong>Pilih Robux</strong></div>
+        <div class="cute-strip-divider">♡</div>
+        <div class="cute-strip-item"><span>2</span><strong>Isi Username</strong></div>
+        <div class="cute-strip-divider">♡</div>
+        <div class="cute-strip-item"><span>3</span><strong>Chat Admin</strong></div>
+        <div class="cute-strip-divider">♡</div>
+        <div class="cute-strip-item"><span>4</span><strong>Siap Main!</strong></div>
     </section>
-
-
-    <!-- PRICE -->
 
     <section class="price-section" id="price">
-
         <div class="section-heading">
-
-            <div class="section-label">
-                OUR PRICE LIST
-            </div>
-
-            <h2>
-                Mau berapa Robux
-                <span>
-                    hari ini?
-                </span>
-            </h2>
-
-            <p>
-                Pilih paket Robux yang sesuai dengan kebutuhan
-                dan budget kamu.
-            </p>
-
+            <div class="section-label">DAFTAR HARGA</div>
+            <h2>Mau jajan berapa Robux <span>hari ini?</span></h2>
+            <p>Semua paket siap dipilih. Tap salah satu, formulir pesanan langsung terisi.</p>
         </div>
-
-
         <div class="package-wrapper">
-
             <div class="category-title">
-
-                <div class="category-icon">
-                    R$
-                </div>
-
+                <div class="category-icon">R$</div>
                 <div>
-                    <h3>
-                        Paket Robux
-                    </h3>
-
-                    <p>
-                        Pilih jumlah Robux yang kamu inginkan
-                    </p>
+                    <h3>Paket Robux</h3>
+                    <p>Pilih sesuai isi wishlist dan budget kamu</p>
                 </div>
-
             </div>
-
-
+            <div class="filter-chips" id="filterChips" role="group" aria-label="Filter paket">
+                <button type="button" class="chip active" data-f="all">Semua</button>
+                <button type="button" class="chip" data-f="small">Hemat (≤ 300)</button>
+                <button type="button" class="chip" data-f="mid">Pas (500–1.000)</button>
+                <button type="button" class="chip" data-f="big">Sultan (1.500+)</button>
+            </div>
             <div class="package-grid">
-
-                <div class="package-card">
-
+                <div class="package-card" data-robux="100">
                     <div class="package-top">
-                        <div class="robux-icon">
-                            R$
-                        </div>
+                        <div class="robux-icon">R$</div>
                     </div>
-
                     <h3>100 Robux</h3>
-
-                    <p class="package-desc">
-                        Buat jajan kecil
-                    </p>
-
-                    <strong>
-                        Rp17.000
-                    </strong>
-
-                    <button onclick="pilihPaket('100 Robux', 17000, 'Robux')">
-                        Pilih Paket
-                        <span>→</span>
-                    </button>
-
+                    <p class="package-desc">Pas buat jajan kecil-kecilan</p><strong>Rp17.000</strong><button
+                        onclick="pilihPaket('100 Robux', 17000, 'Robux')">Pilih Paket <span>→</span></button>
                 </div>
-
-
-                <div class="package-card popular">
-
-                    <div class="popular-ribbon">
-                        FAVORIT
-                    </div>
-
+                <div class="package-card popular" data-robux="200">
+                    <div class="popular-ribbon">Favorit</div>
                     <div class="package-top">
-                        <div class="robux-icon">
-                            R$
-                        </div>
+                        <div class="robux-icon">R$</div>
                     </div>
-
                     <h3>200 Robux</h3>
-
-                    <p class="package-desc">
-                        Untuk wishlist pertama
-                    </p>
-
-                    <strong>
-                        Rp34.000
-                    </strong>
-
-                    <button onclick="pilihPaket('200 Robux', 34000, 'Robux')">
-                        Pilih Paket
-                        <span>→</span>
-                    </button>
-
+                    <p class="package-desc">Wishlist pertama kebeli</p><strong>Rp34.000</strong><button
+                        onclick="pilihPaket('200 Robux', 34000, 'Robux')">Pilih Paket <span>→</span></button>
                 </div>
-
-
-                <div class="package-card">
-
+                <div class="package-card" data-robux="300">
                     <div class="package-top">
-                        <div class="robux-icon">
-                            R$
-                        </div>
+                        <div class="robux-icon">R$</div>
                     </div>
-
                     <h3>300 Robux</h3>
-
-                    <p class="package-desc">
-                        Avatar makin kece
-                    </p>
-
-                    <strong>
-                        Rp51.000
-                    </strong>
-
-                    <button onclick="pilihPaket('300 Robux', 51000, 'Robux')">
-                        Pilih Paket
-                        <span>→</span>
-                    </button>
-
+                    <p class="package-desc">Avatar langsung makin kece</p><strong>Rp51.000</strong><button
+                        onclick="pilihPaket('300 Robux', 51000, 'Robux')">Pilih Paket <span>→</span></button>
                 </div>
-
-
-                <div class="package-card">
-
+                <div class="package-card" data-robux="500">
                     <div class="package-top">
-                        <div class="robux-icon">
-                            R$
-                        </div>
+                        <div class="robux-icon">R$</div>
                     </div>
-
                     <h3>500 Robux</h3>
-
-                    <p class="package-desc">
-                        Saatnya borong wishlist
-                    </p>
-
-                    <strong>
-                        Rp85.000
-                    </strong>
-
-                    <button onclick="pilihPaket('500 Robux', 85000, 'Robux')">
-                        Pilih Paket
-                        <span>→</span>
-                    </button>
-
+                    <p class="package-desc">Saatnya borong wishlist</p><strong>Rp85.000</strong><button
+                        onclick="pilihPaket('500 Robux', 85000, 'Robux')">Pilih Paket <span>→</span></button>
                 </div>
-
-
-                <div class="package-card">
-
+                <div class="package-card" data-robux="1000">
                     <div class="package-top">
-                        <div class="robux-icon">
-                            R$
-                        </div>
+                        <div class="robux-icon">R$</div>
                     </div>
-
                     <h3>1.000 Robux</h3>
-
-                    <p class="package-desc">
-                        Lebih banyak pilihan
-                    </p>
-
-                    <strong>
-                        Rp170.000
-                    </strong>
-
-                    <button onclick="pilihPaket('1.000 Robux', 170000, 'Robux')">
-                        Pilih Paket
-                        <span>→</span>
-                    </button>
-
+                    <p class="package-desc">Banyak pilihan, bebas mix & match</p><strong>Rp170.000</strong><button
+                        onclick="pilihPaket('1.000 Robux', 170000, 'Robux')">Pilih Paket <span>→</span></button>
                 </div>
-
-
-                <div class="package-card">
-
+                <div class="package-card" data-robux="1500">
                     <div class="package-top">
-                        <div class="robux-icon">
-                            R$
-                        </div>
+                        <div class="robux-icon">R$</div>
                     </div>
-
                     <h3>1.500 Robux</h3>
-
-                    <p class="package-desc">
-                        Makin banyak, makin seru
-                    </p>
-
-                    <strong>
-                        Rp255.000
-                    </strong>
-
-                    <button onclick="pilihPaket('1.500 Robux', 255000, 'Robux')">
-                        Pilih Paket
-                        <span>→</span>
-                    </button>
-
+                    <p class="package-desc">Makin banyak makin seru</p><strong>Rp255.000</strong><button
+                        onclick="pilihPaket('1.500 Robux', 255000, 'Robux')">Pilih Paket <span>→</span></button>
                 </div>
-
-
-                <div class="package-card">
-
+                <div class="package-card" data-robux="2000">
                     <div class="package-top">
-                        <div class="robux-icon">
-                            R$
-                        </div>
+                        <div class="robux-icon">R$</div>
                     </div>
-
                     <h3>2.000 Robux</h3>
-
-                    <p class="package-desc">
-                        Untuk lebih banyak item
-                    </p>
-
-                    <strong>
-                        Rp340.000
-                    </strong>
-
-                    <button onclick="pilihPaket('2.000 Robux', 340000, 'Robux')">
-                        Pilih Paket
-                        <span>→</span>
-                    </button>
-
+                    <p class="package-desc">Item impian jadi nyata</p><strong>Rp340.000</strong><button
+                        onclick="pilihPaket('2.000 Robux', 340000, 'Robux')">Pilih Paket <span>→</span></button>
                 </div>
-
-
-                <div class="package-card">
-
+                <div class="package-card" data-robux="3000">
                     <div class="package-top">
-                        <div class="robux-icon">
-                            R$
-                        </div>
+                        <div class="robux-icon">R$</div>
                     </div>
-
                     <h3>3.000 Robux</h3>
-
-                    <p class="package-desc">
-                        Wishlist lebih banyak
-                    </p>
-
-                    <strong>
-                        Rp510.000
-                    </strong>
-
-                    <button onclick="pilihPaket('3.000 Robux', 510000, 'Robux')">
-                        Pilih Paket
-                        <span>→</span>
-                    </button>
-
+                    <p class="package-desc">Wishlist panjang? Aman</p><strong>Rp510.000</strong><button
+                        onclick="pilihPaket('3.000 Robux', 510000, 'Robux')">Pilih Paket <span>→</span></button>
                 </div>
-
-
-                <div class="package-card">
-
+                <div class="package-card" data-robux="4000">
                     <div class="package-top">
-                        <div class="robux-icon">
-                            R$
-                        </div>
+                        <div class="robux-icon">R$</div>
                     </div>
-
                     <h3>4.000 Robux</h3>
-
-                    <p class="package-desc">
-                        Untuk wishlist besar
-                    </p>
-
-                    <strong>
-                        Rp680.000
-                    </strong>
-
-                    <button onclick="pilihPaket('4.000 Robux', 680000, 'Robux')">
-                        Pilih Paket
-                        <span>→</span>
-                    </button>
-
+                    <p class="package-desc">Koleksi level besar</p><strong>Rp680.000</strong><button
+                        onclick="pilihPaket('4.000 Robux', 680000, 'Robux')">Pilih Paket <span>→</span></button>
                 </div>
-
-
-                <div class="package-card">
-
+                <div class="package-card" data-robux="5000">
                     <div class="package-top">
-                        <div class="robux-icon">
-                            R$
-                        </div>
+                        <div class="robux-icon">R$</div>
                     </div>
-
                     <h3>5.000 Robux</h3>
-
-                    <p class="package-desc">
-                        Full wishlist
-                    </p>
-
-                    <strong>
-                        Rp850.000
-                    </strong>
-
-                    <button onclick="pilihPaket('5.000 Robux', 850000, 'Robux')">
-                        Pilih Paket
-                        <span>→</span>
-                    </button>
-
+                    <p class="package-desc">Full wishlist, tanpa mikir lagi</p><strong>Rp850.000</strong><button
+                        onclick="pilihPaket('5.000 Robux', 850000, 'Robux')">Pilih Paket <span>→</span></button>
                 </div>
-
             </div>
-
         </div>
-
     </section>
-
-
-    <!-- WHY KARISYA -->
 
     <section class="why-section">
-
         <div class="section-heading">
-
-            <div class="section-label">
-                WHY KARISYA?
-            </div>
-
-            <h2>
-                Top up Robux
-                <span>
-                    tanpa ribet.
-                </span>
-            </h2>
-
-            <p>
-                Proses dibuat sederhana supaya kamu bisa
-                langsung memilih paket dan melanjutkan pesanan.
-            </p>
-
+            <div class="section-label">KENAPA KARISYA?</div>
+            <h2>Top up Robux, <span>tanpa drama.</span></h2>
+            <p>Dibuat sesederhana mungkin supaya kamu cepat lanjut main.</p>
         </div>
-
-
         <div class="why-grid">
-
             <div class="why-card">
-
-                <div class="why-icon">
-                    01
-                </div>
-
-                <h3>
-                    Mudah
-                </h3>
-
-                <p>
-                    Pilih paket, masukkan nama pengguna,
-                    lalu lanjutkan pesanan.
-                </p>
-
+                <div class="why-icon">🌸</div>
+                <h3>Gampang banget</h3>
+                <p>Pilih paket, isi username, kirim. Selesai.</p>
             </div>
-
-
             <div class="why-card">
-
-                <div class="why-icon">
-                    02
-                </div>
-
-                <h3>
-                    Verifikasi Akun
-                </h3>
-
-                <p>
-                    Cek nama pengguna Roblox sebelum
-                    melanjutkan pesanan.
-                </p>
-
+                <div class="why-icon">🔍</div>
+                <h3>Bisa cek akun dulu</h3>
+                <p>Lihat avatarmu muncul sebelum pesan dikirim.</p>
             </div>
-
-
             <div class="why-card">
-
-                <div class="why-icon">
-                    03
-                </div>
-
-                <h3>
-                    WhatsApp
-                </h3>
-
-                <p>
-                    Detail pesanan otomatis disiapkan
-                    sebelum chat dengan admin.
-                </p>
-
+                <div class="why-icon">💌</div>
+                <h3>Pesan siap kirim</h3>
+                <p>Detail order sudah tersusun rapi untuk admin.</p>
             </div>
-
-
             <div class="why-card">
-
-                <div class="why-icon">
-                    04
-                </div>
-
-                <h3>
-                    Tanpa Password
-                </h3>
-
-                <p>
-                    Kami hanya membutuhkan nama pengguna Roblox,
-                    bukan password akun.
-                </p>
-
+                <div class="why-icon">🔒</div>
+                <h3>Tanpa password</h3>
+                <p>Cukup username Roblox. Password tidak pernah diminta.</p>
             </div>
-
         </div>
-
     </section>
-
-
-    <!-- ORDER -->
 
     <section class="order-section" id="order">
-
-        <div class="order-stars">
-            ✦　✧　♡
-        </div>
-
-
+        <div class="order-stars">✦　✧　♡</div>
         <div class="order-container">
-
             <div class="order-copy">
-
-                <div class="section-label light">
-                    LET'S ORDER
+                <div class="section-label light">SIAP PESAN</div>
+                <h2>Paket favoritmu <span>sudah ketemu?</span></h2>
+                <p>Pilih paket, isi username Roblox, cek akunnya, lalu kirim pesanan ke WhatsApp admin. Gampang kan?</p>
+                <div class="cute-note"><span>🦥</span>
+                    <div><strong>Biar nggak salah kirim</strong><br>Cek lagi ejaan username Roblox kamu sebelum menekan
+                        tombol kirim.</div>
                 </div>
-
-                <h2>
-                    Sudah menemukan
-                    <span>
-                        paket favoritmu?
-                    </span>
-                </h2>
-
-                <p>
-                    Pilih paket Robux, masukkan nama pengguna
-                    Roblox kamu, verifikasi akun, lalu kirim
-                    pesanan ke WhatsApp.
-                </p>
-
-
-                <div class="cute-note">
-
-                    <span>
-                        🦥
-                    </span>
-
-                    <div>
-
-                        <strong>
-                            Catatan
-                        </strong>
-
-                        <br>
-
-                        Pastikan nama pengguna Roblox
-                        yang kamu masukkan sudah benar.
-
-                    </div>
-
-                </div>
-
             </div>
-
-
-            <!-- ORDER CARD -->
-
             <div class="order-card">
-
                 <div class="order-card-top">
-
                     <div>
-
-                        <p>
-                            YOUR ORDER
-                        </p>
-
-                        <h3>
-                            Mulai Pesan
-                        </h3>
-
+                        <p>PESANANMU</p>
+                        <h3>Yuk, mulai pesan!</h3>
                     </div>
-
-                    <div class="mini-bow">
-                        🎀
-                    </div>
-
+                    <div class="mini-bow">🎀</div>
                 </div>
-
-
                 <form id="orderForm">
-
-                    <!-- PACKAGE -->
-
                     <div class="form-group">
-
-                        <label for="paket">
-                            Paket Robux
-                        </label>
-
+                        <label for="paket">Pilih paket Robux</label>
                         <select id="paket" required>
-
-                            <option value="">
-                                Pilih paket Robux
-                            </option>
-
+                            <option value="">Pilih paket Robux</option>
                             <optgroup label="Paket Robux">
-
-                                <option value="100 Robux" data-price="17000" data-type="Robux">
-                                    100 Robux — Rp17.000
+                                <option value="100 Robux" data-price="17000" data-type="Robux">100 Robux — Rp17.000
                                 </option>
-
-                                <option value="200 Robux" data-price="34000" data-type="Robux">
-                                    200 Robux — Rp34.000
+                                <option value="200 Robux" data-price="34000" data-type="Robux">200 Robux — Rp34.000
                                 </option>
-
-                                <option value="300 Robux" data-price="51000" data-type="Robux">
-                                    300 Robux — Rp51.000
+                                <option value="300 Robux" data-price="51000" data-type="Robux">300 Robux — Rp51.000
                                 </option>
-
-                                <option value="500 Robux" data-price="85000" data-type="Robux">
-                                    500 Robux — Rp85.000
+                                <option value="500 Robux" data-price="85000" data-type="Robux">500 Robux — Rp85.000
                                 </option>
-
-                                <option value="1.000 Robux" data-price="170000" data-type="Robux">
-                                    1.000 Robux — Rp170.000
-                                </option>
-
-                                <option value="1.500 Robux" data-price="255000" data-type="Robux">
-                                    1.500 Robux — Rp255.000
-                                </option>
-
-                                <option value="2.000 Robux" data-price="340000" data-type="Robux">
-                                    2.000 Robux — Rp340.000
-                                </option>
-
-                                <option value="3.000 Robux" data-price="510000" data-type="Robux">
-                                    3.000 Robux — Rp510.000
-                                </option>
-
-                                <option value="4.000 Robux" data-price="680000" data-type="Robux">
-                                    4.000 Robux — Rp680.000
-                                </option>
-
-                                <option value="5.000 Robux" data-price="850000" data-type="Robux">
-                                    5.000 Robux — Rp850.000
-                                </option>
-
+                                <option value="1.000 Robux" data-price="170000" data-type="Robux">1.000 Robux —
+                                    Rp170.000</option>
+                                <option value="1.500 Robux" data-price="255000" data-type="Robux">1.500 Robux —
+                                    Rp255.000</option>
+                                <option value="2.000 Robux" data-price="340000" data-type="Robux">2.000 Robux —
+                                    Rp340.000</option>
+                                <option value="3.000 Robux" data-price="510000" data-type="Robux">3.000 Robux —
+                                    Rp510.000</option>
+                                <option value="4.000 Robux" data-price="680000" data-type="Robux">4.000 Robux —
+                                    Rp680.000</option>
+                                <option value="5.000 Robux" data-price="850000" data-type="Robux">5.000 Robux —
+                                    Rp850.000</option>
                             </optgroup>
-
                         </select>
-
                     </div>
-
-
-                    <!-- USERNAME -->
-
                     <div class="form-group">
-
-                        <label for="username">
-                            Nama Pengguna Roblox
-                        </label>
-
-                        <input
-                            type="text"
-                            id="username"
-                            placeholder="Nama pengguna"
-                            autocomplete="off"
-                            required
-                        >
-
-                        <small class="input-note">
-                            Pastikan nama pengguna yang dimasukkan sudah benar.
-                            Jangan gunakan nama display.
-                        </small>
-
-
-                        <button
-                            type="button"
-                            id="verifyRobloxButton"
-                            class="verify-roblox-button"
-                        >
-                            Verifikasi Akun
-                            <span>→</span>
-                        </button>
-
-
-                        <div
-                            id="robloxStatus"
-                            class="roblox-status"
-                            aria-live="polite"
-                        ></div>
-
-
-                        <!-- ROBLOX PROFILE -->
-
-                        <div
-                            id="robloxProfile"
-                            class="roblox-profile"
-                            hidden
-                        >
-
-                            <div class="roblox-profile-avatar">
-
-                                <img
-                                    id="robloxAvatar"
-                                    src=""
-                                    alt="Avatar Roblox"
-                                >
-
-                            </div>
-
-
+                        <label for="username">Username Roblox</label>
+                        <input type="text" id="username" placeholder="username" autocomplete="off" required>
+                        <small class="input-note">Isi username roblox, bukan display name, dan pastikan ejaannya benar
+                            ya.</small>
+                        <button type="button" id="verifyRobloxButton" class="verify-roblox-button">Cek Akun Roblox
+                            <span>→</span></button>
+                        <div id="robloxStatus" class="roblox-status" aria-live="polite"></div>
+                        <div id="robloxProfile" class="roblox-profile" hidden>
+                            <div class="roblox-profile-avatar"><img id="robloxAvatar" src="" alt="Avatar Roblox"></div>
                             <div class="roblox-profile-info">
-
-                                <div class="roblox-profile-badge">
-                                    Akun ditemukan
-                                </div>
-
-                                <h4 id="robloxDisplayName">
-                                    Display Name
-                                </h4>
-
-                                <p id="robloxUsername">
-                                    @username
-                                </p>
-
-                                <small id="robloxUserId">
-                                    User ID: -
-                                </small>
-
+                                <div class="roblox-profile-badge">Akun ditemukan</div>
+                                <h4 id="robloxDisplayName">Display Name</h4>
+                                <p id="robloxUsername">@username</p>
+                                <small id="robloxUserId">User ID: -</small>
                             </div>
-
-
-                            <div class="roblox-profile-check">
-                                ✓
-                            </div>
-
+                            <div class="roblox-profile-check">✓</div>
                         </div>
-
-
-                        <input
-                            type="hidden"
-                            id="robloxUserIdValue"
-                            value=""
-                        >
-
-                        <input
-                            type="hidden"
-                            id="robloxDisplayNameValue"
-                            value=""
-                        >
-
+                        <input type="hidden" id="robloxUserIdValue" value="">
+                        <input type="hidden" id="robloxDisplayNameValue" value="">
                     </div>
-
-
-                    <!-- TOTAL -->
-
                     <div class="total-box">
-
-                        <div>
-
-                            <span>
-                                Total pesanan
-                            </span>
-
-                            <small>
-                                Paket Robux yang dipilih
-                            </small>
-
-                        </div>
-
-                        <strong id="total">
-                            Rp0
-                        </strong>
-
+                        <div><span>Total pesanan</span><small>Sesuai paket yang kamu pilih</small></div><strong
+                            id="total">Rp0</strong>
                     </div>
-
-
-                    <!-- WHATSAPP -->
-
-                    <div class="payment-info">
-
-                        <span>
-                            💌
-                        </span>
-
-                        <div>
-
-                            <strong>
-                                Lanjut ke WhatsApp
-                            </strong>
-
-                            <p>
-                                Detail pesanan akan disiapkan
-                                otomatis untuk admin.
-                            </p>
-
+                    <div class="payment-info"><span>💌</span>
+                        <div><strong>Selanjutnya: chat admin di WhatsApp</strong>
+                            <p>Detail pesananmu disiapkan otomatis, tinggal kirim.</p>
                         </div>
-
                     </div>
-
-
-                    <!-- BUTTON -->
-
-                    <button
-                        type="submit"
-                        class="order-button"
-                    >
-                        Kirim Pesanan ke Admin
-                        <span>→</span>
-                    </button>
-
+                    <button type="submit" class="order-button">Kirim Pesanan ke Admin <span>→</span></button>
                 </form>
-
             </div>
-
         </div>
-
     </section>
-
-
-    <!-- HOW TO ORDER -->
 
     <section class="how-section" id="how">
-
         <div class="section-heading">
-
-            <div class="section-label">
-                CARA PESAN
-            </div>
-
-            <h2>
-                Cuma 4 langkah
-                <span>
-                    sampai wishlist kamu.
-                </span>
-            </h2>
-
-            <p>
-                Pilih paket, verifikasi akun, lalu lanjutkan
-                pesanan melalui WhatsApp.
-            </p>
-
+            <div class="section-label">CARA PESAN</div>
+            <h2>Cuma 4 langkah <span>menuju wishlist kamu.</span></h2>
+            <p>Pilih paket, cek akun, lalu lanjut ke WhatsApp.</p>
         </div>
-
-
         <div class="steps">
-
             <div class="step">
-
-                <div class="step-number">
-                    01
-                </div>
-
-                <div class="step-icon">
-                    01
-                </div>
-
-                <h3>
-                    Pilih Paket
-                </h3>
-
-                <p>
-                    Pilih jumlah Robux sesuai kebutuhan kamu.
-                </p>
-
+                <div class="step-icon">1</div>
+                <h3>Pilih paket</h3>
+                <p>Tentukan jumlah Robux yang kamu mau.</p>
             </div>
-
-
             <div class="step">
-
-                <div class="step-number">
-                    02
-                </div>
-
-                <div class="step-icon">
-                    02
-                </div>
-
-                <h3>
-                    Isi Nama Pengguna
-                </h3>
-
-                <p>
-                    Masukkan username Roblox, bukan display name.
-                </p>
-
+                <div class="step-icon">2</div>
+                <h3>Isi username</h3>
+                <p>Tulis username Roblox, bukan display name.</p>
             </div>
-
-
             <div class="step">
-
-                <div class="step-number">
-                    03
-                </div>
-
-                <div class="step-icon">
-                    03
-                </div>
-
-                <h3>
-                    Verifikasi
-                </h3>
-
-                <p>
-                    Pastikan avatar yang muncul adalah akun kamu.
-                </p>
-
+                <div class="step-icon">3</div>
+                <h3>Cek akunnya</h3>
+                <p>Pastikan avatar yang muncul adalah punyamu.</p>
             </div>
-
-
             <div class="step">
-
-                <div class="step-number">
-                    04
-                </div>
-
-                <div class="step-icon">
-                    04
-                </div>
-
-                <h3>
-                    Chat Admin
-                </h3>
-
-                <p>
-                    Lanjutkan pembayaran dan proses pesanan
-                    melalui WhatsApp.
-                </p>
-
+                <div class="step-icon">4</div>
+                <h3>Chat admin</h3>
+                <p>Lanjut bayar dan proses lewat WhatsApp.</p>
             </div>
-
         </div>
-
     </section>
 
-
-    <!-- REMINDER -->
+    <section class="faq-section" id="faq">
+        <div class="section-heading">
+            <div class="section-label">TANYA JAWAB</div>
+            <h2>Masih ada <span>yang bikin ragu?</span></h2>
+        </div>
+        <div class="faq-list">
+            <details>
+                <summary>Apa saja yang perlu aku siapkan?</summary>
+                <p>Cukup username Roblox kamu. Pilih paket, cek akunnya, lalu kirim pesanan ke admin.</p>
+            </details>
+            <details>
+                <summary>Username dan display name itu beda ya?</summary>
+                <p>Beda. Username adalah nama unik akunmu, sedangkan display name hanya nama tampilan. Isi kolom dengan
+                    username.</p>
+            </details>
+            <details>
+                <summary>Apakah aku harus kasih password?</summary>
+                <p>Tidak. Jangan pernah bagikan password Roblox kamu ke siapa pun, termasuk admin.</p>
+            </details>
+            <details>
+                <summary>Gimana kalau avatar yang muncul bukan punyaku?</summary>
+                <p>Jangan lanjutkan dulu. Periksa lagi ejaan username, lalu tekan Verifikasi Akun sekali lagi.</p>
+            </details>
+        </div>
+    </section>
 
     <section class="reminder-section">
-
         <div class="reminder-card">
-
-            <div class="reminder-mascot">
-                🦥
+            <div class="reminder-mascot">🦥</div>
+            <div class="reminder-text"><span>PENTING BANGET</span>
+                <h2>Password Roblox itu rahasia kamu.</h2>
+                <p>Untuk order, kami hanya perlu username Roblox. Jangan kasih password ke siapa pun, ya.</p>
             </div>
-
-            <div class="reminder-text">
-
-                <span>
-                    Penting
-                </span>
-
-                <h2>
-                    Jangan berikan password Roblox kamu.
-                </h2>
-
-                <p>
-                    Untuk proses order, kami hanya membutuhkan
-                    nama pengguna Roblox. Password tidak diperlukan.
-                </p>
-
-            </div>
-
-            <div class="reminder-bow">
-                🎀
-            </div>
-
+            <div class="reminder-bow">🎀</div>
         </div>
-
     </section>
 
-
-    <!-- FOOTER -->
-
     <footer>
-
-        <div class="footer-cloud">
-            ☁️　✦　☁️
-        </div>
-
-        <div class="footer-logo">
-            Karisya Dreamy
-        </div>
-
-        <p>
-            Tempat kecil untuk wishlist Roblox kamu.
-        </p>
-
-        <div class="footer-links">
-
-            <a href="#home">
-                Home
-            </a>
-
-            <a href="#price">
-                Price List
-            </a>
-
-            <a href="#how">
-                Cara Pesan
-            </a>
-
-            <a href="#order">
-                Order
-            </a>
-
-        </div>
-
-        <span>
-            Made with care for your Roblox wishlist.
-        </span>
-
+        <div class="footer-cloud">☁️　✦　☁️</div>
+        <div class="footer-logo">Karisya Dreamy</div>
+        <p>Tempat kecil untuk wishlist Roblox kamu.</p>
+        <div class="footer-links"><a href="#home">Home</a><a href="#price">Price List</a><a href="#how">Cara Pesan</a><a
+                href="#faq">Tanya Jawab</a><a href="#order">Order</a></div>
+        <span>Dibuat dengan sayang untuk para pemain Roblox 💗</span>
     </footer>
 
+    <div class="mobile-bar" id="mobileBar" hidden>
+        <div><small>Total</small><strong id="barTotal">Rp0</strong></div>
+        <a href="#order">Lanjut pesan →</a>
+    </div>
+    <a href="#home" class="to-top" id="toTop" aria-label="Kembali ke atas" hidden>↑</a>
 
     <script src="script.js"></script>
-
+    <script src="enhance.js"></script>
 </body>
 
 </html>
