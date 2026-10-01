@@ -3,14 +3,13 @@
 // ==========================================
 
 // NOMOR WHATSAPP ADMIN
-const nomorWhatsApp = "6289625037020";
+const nomorWhatsApp = "6285694782857";
 
 // ==========================================
 // CLOUDFLARE WORKER
 // ==========================================
 
-const ROBLOX_PROXY_URL =
-  "https://roblox-api.xavvlabs.workers.dev";
+const ROBLOX_PROXY_URL = "https://roblox-api.xavvlabs.workers.dev";
 // ==========================================
 // FORMAT RUPIAH
 // ==========================================
@@ -85,12 +84,10 @@ const robloxDisplayName = document.getElementById("robloxDisplayName");
 const robloxUsername = document.getElementById("robloxUsername");
 const robloxUserId = document.getElementById("robloxUserId");
 
-const robloxUserIdValue = document.getElementById(
-  "robloxUserIdValue"
-);
+const robloxUserIdValue = document.getElementById("robloxUserIdValue");
 
 const robloxDisplayNameValue = document.getElementById(
-  "robloxDisplayNameValue"
+  "robloxDisplayNameValue",
 );
 
 const orderButton = document.querySelector(".order-button");
@@ -121,18 +118,14 @@ function resetVerifikasiRoblox() {
 // JIKA USERNAME BERUBAH
 // ==========================================
 
-usernameInput.addEventListener(
-  "input",
-  resetVerifikasiRoblox
-);
+usernameInput.addEventListener("input", resetVerifikasiRoblox);
 
 // ==========================================
 // CARI AKUN ROBLOX
 // ==========================================
 
 async function cariAkunRoblox(username) {
-  const url =
-    `${ROBLOX_PROXY_URL}/api/roblox/${encodeURIComponent(username)}`;
+  const url = `${ROBLOX_PROXY_URL}/api/roblox/${encodeURIComponent(username)}`;
 
   const response = await fetch(url, {
     method: "GET",
@@ -162,130 +155,96 @@ async function cariAkunRoblox(username) {
 // TOMBOL CEK AKUN ROBLOX
 // ==========================================
 
-verifyButton.addEventListener(
-  "click",
-  async function () {
-    const username = usernameInput.value.trim();
+verifyButton.addEventListener("click", async function () {
+  const username = usernameInput.value.trim();
 
-    if (!username) {
+  if (!username) {
+    robloxStatus.textContent = "Masukkan username Roblox dulu ya ♡";
+
+    robloxStatus.className = "roblox-status error";
+
+    usernameInput.focus();
+
+    return;
+  }
+
+  akunRobloxTerverifikasi = false;
+  orderButton.disabled = true;
+  robloxProfile.hidden = true;
+
+  verifyButton.disabled = true;
+
+  verifyButton.innerHTML = "Sedang mengecek... <span>⏳</span>";
+
+  robloxStatus.textContent = "Menghubungkan ke data Roblox...";
+
+  robloxStatus.className = "roblox-status loading";
+
+  try {
+    const user = await cariAkunRoblox(username);
+
+    if (!user) {
       robloxStatus.textContent =
-        "Masukkan username Roblox dulu ya ♡";
+        "Username Roblox tidak ditemukan. Coba cek lagi penulisannya.";
 
-      robloxStatus.className =
-        "roblox-status error";
-
-      usernameInput.focus();
+      robloxStatus.className = "roblox-status error";
 
       return;
     }
 
-    akunRobloxTerverifikasi = false;
-    orderButton.disabled = true;
-    robloxProfile.hidden = true;
+    const namaUsername = user.username || username;
 
-    verifyButton.disabled = true;
+    const namaDisplay = user.displayName || namaUsername;
 
-    verifyButton.innerHTML =
-      "Sedang mengecek... <span>⏳</span>";
+    const userId = user.userId;
+
+    robloxDisplayName.textContent = namaDisplay;
+
+    robloxUsername.textContent = `@${namaUsername}`;
+
+    robloxUserId.textContent = `User ID: ${userId}`;
+
+    const avatarUrl = user.avatar || user.image || user.headshot || "";
+
+    if (avatarUrl) {
+      robloxAvatar.src = avatarUrl;
+
+      robloxAvatar.alt = `Character Roblox ${namaUsername}`;
+
+      robloxAvatar.style.display = "block";
+    } else {
+      robloxAvatar.removeAttribute("src");
+
+      robloxAvatar.alt = "Character Roblox tidak tersedia";
+    }
+
+    robloxUserIdValue.value = userId;
+
+    robloxDisplayNameValue.value = namaDisplay;
+
+    robloxProfile.hidden = false;
 
     robloxStatus.textContent =
-      "Menghubungkan ke data Roblox...";
+      "Akun Roblox ditemukan. Pastikan username dan character di atas sudah benar.";
 
-    robloxStatus.className =
-      "roblox-status loading";
+    robloxStatus.className = "roblox-status success";
 
-    try {
-      const user =
-        await cariAkunRoblox(username);
+    akunRobloxTerverifikasi = true;
 
-      if (!user) {
-        robloxStatus.textContent =
-          "Username Roblox tidak ditemukan. Coba cek lagi penulisannya.";
+    orderButton.disabled = false;
+  } catch (error) {
+    console.error("Roblox verification error:", error);
 
-        robloxStatus.className =
-          "roblox-status error";
+    robloxStatus.textContent =
+      "Gagal menghubungkan ke Roblox. Coba lagi beberapa saat.";
 
-        return;
-      }
+    robloxStatus.className = "roblox-status error";
+  } finally {
+    verifyButton.disabled = false;
 
-      const namaUsername =
-        user.username || username;
-
-      const namaDisplay =
-        user.displayName || namaUsername;
-
-      const userId =
-        user.userId;
-
-      robloxDisplayName.textContent =
-        namaDisplay;
-
-      robloxUsername.textContent =
-        `@${namaUsername}`;
-
-      robloxUserId.textContent =
-        `User ID: ${userId}`;
-
-      const avatarUrl =
-        user.avatar ||
-        user.image ||
-        user.headshot ||
-        "";
-
-      if (avatarUrl) {
-        robloxAvatar.src =
-          avatarUrl;
-
-        robloxAvatar.alt =
-          `Character Roblox ${namaUsername}`;
-
-        robloxAvatar.style.display =
-          "block";
-      } else {
-        robloxAvatar.removeAttribute("src");
-
-        robloxAvatar.alt =
-          "Character Roblox tidak tersedia";
-      }
-
-      robloxUserIdValue.value =
-        userId;
-
-      robloxDisplayNameValue.value =
-        namaDisplay;
-
-      robloxProfile.hidden = false;
-
-      robloxStatus.textContent =
-        "Akun Roblox ditemukan. Pastikan username dan character di atas sudah benar.";
-
-      robloxStatus.className =
-        "roblox-status success";
-
-      akunRobloxTerverifikasi = true;
-
-      orderButton.disabled = false;
-
-    } catch (error) {
-      console.error(
-        "Roblox verification error:",
-        error
-      );
-
-      robloxStatus.textContent =
-        "Gagal menghubungkan ke Roblox. Coba lagi beberapa saat.";
-
-      robloxStatus.className =
-        "roblox-status error";
-
-    } finally {
-      verifyButton.disabled = false;
-
-      verifyButton.innerHTML =
-        "Cek Akun Roblox <span>✦</span>";
-    }
+    verifyButton.innerHTML = "Cek Akun Roblox <span>✦</span>";
   }
-);
+});
 
 // ==========================================
 // SUBMIT ORDER
@@ -293,116 +252,72 @@ verifyButton.addEventListener(
 
 document
   .getElementById("orderForm")
-  .addEventListener(
-    "submit",
-    function (event) {
+  .addEventListener("submit", function (event) {
+    event.preventDefault();
 
-      event.preventDefault();
+    const paketSelect = document.getElementById("paket");
 
-      const paketSelect =
-        document.getElementById("paket");
+    const username = usernameInput.value.trim();
 
-      const username =
-        usernameInput.value.trim();
+    if (!paketSelect.value) {
+      alert("Yuk pilih paket Robux dulu ✨");
 
-      if (!paketSelect.value) {
-        alert(
-          "Yuk pilih paket Robux dulu ✨"
-        );
+      return;
+    }
 
-        return;
-      }
+    if (!username) {
+      alert("Masukkan username Roblox kamu dulu ya ♡");
 
-      if (!username) {
-        alert(
-          "Masukkan username Roblox kamu dulu ya ♡"
-        );
+      return;
+    }
 
-        return;
-      }
+    if (!akunRobloxTerverifikasi) {
+      alert(
+        "Cek dan pastikan username Roblox kamu sudah terverifikasi dulu ya ♡",
+      );
 
-      if (!akunRobloxTerverifikasi) {
-        alert(
-          "Cek dan pastikan username Roblox kamu sudah terverifikasi dulu ya ♡"
-        );
+      usernameInput.focus();
 
-        usernameInput.focus();
+      return;
+    }
 
-        return;
-      }
+    const selectedOption = paketSelect.options[paketSelect.selectedIndex];
 
-      const selectedOption =
-        paketSelect.options[
-          paketSelect.selectedIndex
-        ];
+    const paket = selectedOption.value;
 
-      const paket =
-        selectedOption.value;
+    const harga = Number(selectedOption.getAttribute("data-price"));
 
-      const harga =
-        Number(
-          selectedOption.getAttribute(
-            "data-price"
-          )
-        );
+    const tipe = selectedOption.getAttribute("data-type");
 
-      const tipe =
-        selectedOption.getAttribute(
-          "data-type"
-        );
+    const userId = robloxUserIdValue.value;
 
-      const userId =
-        robloxUserIdValue.value;
+    const displayName = robloxDisplayNameValue.value;
 
-      const displayName =
-        robloxDisplayNameValue.value;
+    // ======================================
+    // ORDER ID
+    // ======================================
 
-      // ======================================
-      // ORDER ID
-      // ======================================
+    const sekarang = new Date();
 
-      const sekarang =
-        new Date();
+    const tahun = String(sekarang.getFullYear()).slice(-2);
 
-      const tahun =
-        String(
-          sekarang.getFullYear()
-        ).slice(-2);
+    const bulan = String(sekarang.getMonth() + 1).padStart(2, "0");
 
-      const bulan =
-        String(
-          sekarang.getMonth() + 1
-        ).padStart(2, "0");
+    const tanggal = String(sekarang.getDate()).padStart(2, "0");
 
-      const tanggal =
-        String(
-          sekarang.getDate()
-        ).padStart(2, "0");
+    const jam = String(sekarang.getHours()).padStart(2, "0");
 
-      const jam =
-        String(
-          sekarang.getHours()
-        ).padStart(2, "0");
+    const menit = String(sekarang.getMinutes()).padStart(2, "0");
 
-      const menit =
-        String(
-          sekarang.getMinutes()
-        ).padStart(2, "0");
+    const detik = String(sekarang.getSeconds()).padStart(2, "0");
 
-      const detik =
-        String(
-          sekarang.getSeconds()
-        ).padStart(2, "0");
+    const orderID = `KD-${tanggal}${bulan}${tahun}-${jam}${menit}${detik}`;
 
-      const orderID =
-        `KD-${tanggal}${bulan}${tahun}-${jam}${menit}${detik}`;
+    // ======================================
+    // PESAN WHATSAPP
+    // ======================================
 
-      // ======================================
-      // PESAN WHATSAPP
-      // ======================================
-
-      const pesan =
-`*PESANAN ✨*
+    const pesan = `*PESANAN ✨*
 
 Order ID: ${orderID}
 
@@ -425,18 +340,12 @@ Mohon info pembayaran selanjutnya ya ✨
 Thank you ♡
 `;
 
-      const pesanEncoded =
-        encodeURIComponent(pesan);
+    const pesanEncoded = encodeURIComponent(pesan);
 
-      const linkWhatsApp =
-        `https://wa.me/${nomorWhatsApp}?text=${pesanEncoded}`;
+    const linkWhatsApp = `https://wa.me/${nomorWhatsApp}?text=${pesanEncoded}`;
 
-      window.open(
-        linkWhatsApp,
-        "_blank"
-      );
-    }
-  );
+    window.open(linkWhatsApp, "_blank");
+  });
 
 // ==========================================
 // DEFAULT
